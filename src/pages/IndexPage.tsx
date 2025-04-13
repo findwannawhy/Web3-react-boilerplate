@@ -1,7 +1,7 @@
 import { Button } from "@/shared/components/ui/button";
 import { publicClient, walletClient } from "@/shared/config/wagmi.config";
 import { EXAMPLE_SWAP_CONTRACT_ADDRESS } from "@/shared/constants/addresses.js";
-import EXAMPLE_SWAP_ABI from "@/shared/abi/exampleSwapAbi.json";
+import EXAMPLE_SWAP_ABI from "@/shared/abis/exampleSwapAbi.json";
 import { useState } from "react";
 import { getContract, zeroAddress } from "viem";
 import { useAccount } from "wagmi";
