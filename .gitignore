@@ -53,4 +53,4 @@ lerna-debug.log*
 
 # Local files
 *.local
-routetree.gen.ts
+src/shared/config/router/routeTree.gen.ts

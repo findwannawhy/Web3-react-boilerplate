@@ -7,13 +7,11 @@ import { getContract, zeroAddress } from "viem";
 import { useAccount } from "wagmi";
 
 export default function IndexPage() {
-  console.log("IndexPage");
 
   const [swapCounter, setSwapCounter] = useState<number | null>(null);
   const account = useAccount();
 
   const handleGetSwapsCounter = async () => {
-    console.log("handleClick", account);
     const contract = getContract({
       address: EXAMPLE_SWAP_CONTRACT_ADDRESS,
       abi: EXAMPLE_SWAP_ABI,
@@ -26,13 +24,18 @@ export default function IndexPage() {
   };
 
   const handleMakeSwap = async () => {
+
+    if (!account.address) {
+      return;
+    }
+    
     const contract = getContract({
       address: EXAMPLE_SWAP_CONTRACT_ADDRESS,
       abi: EXAMPLE_SWAP_ABI,
       client: walletClient,
     });
 
-    await contract.write.swap([zeroAddress, zeroAddress, 0, 0, 0]);
+    await contract.write.swap([zeroAddress, zeroAddress, 0, 0, 0], { account: account.address });
   };
 
   return (

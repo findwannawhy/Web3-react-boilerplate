@@ -1,6 +1,5 @@
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
 import { createPublicClient, createWalletClient, custom, defineChain, http } from "viem";
-import { USER_ACCOUNT_ADDRESS } from "../constants/addresses";
 import { TENDERLY_NET_ID } from "../constants/ids";
 
 // Simulate transaction or get logs with http request etc.
@@ -44,6 +43,5 @@ export const publicClient = createPublicClient({
 
 export const walletClient = createWalletClient({
   chain: virtual_net,
-  transport: custom(window.ethereum),
-  account: USER_ACCOUNT_ADDRESS,
+  transport: custom(window.ethereum)
 });
